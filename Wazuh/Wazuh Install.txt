@@ -1,0 +1,165 @@
+# Wazuh SIEM Deployment Repository
+
+Welcome to the **Wazuh SIEM Configurations** repository! This project provides comprehensive documentation and examples for setting up **Wazuh** as a centralized Security Information and Event Management (SIEM) solution.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Installing Wazuh](#installing-wazuh)
+- [Server Configuration](#server-configuration)
+- [Agent Deployment](#agent-deployment)
+- [Common Commands](#common-commands)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+---
+
+## Overview
+
+**Wazuh** is a free, open-source security monitoring platform that provides:
+- Log data analysis
+- Intrusion detection
+- Vulnerability detection
+- Compliance monitoring
+
+This repository helps you:
+- Set up Wazuh Manager, Indexer (OpenSearch/Elasticsearch), and Dashboard
+- Deploy agents on client machines (Linux, Windows, macOS)
+- Integrate alerting and monitoring features
+
+---
+
+## Prerequisites
+
+- Linux server (Ubuntu 20.04+, CentOS 7+, or Debian 10+ recommended)
+- Minimum 4 vCPUs, 8GB RAM (production systems should have more)
+- Root/administrative privileges
+- Internet access for package downloads
+
+---
+
+## Installing Wazuh
+
+### Option 1: Wazuh All-in-One Installation Assistant (Recommended for Beginners)
+
+Wazuh provides an interactive script to install the full Wazuh Stack (Manager, Indexer, Dashboard).
+
+```bash
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+bash wazuh-install.sh -a
+```
+
+- `-a` flag automatically deploys the all-in-one environment.
+- You can also run without `-a` for manual options.
+
+More options and documentation: [https://documentation.wazuh.com/current/installation-guide/wazuh-installation-assistant/index.html](https://documentation.wazuh.com/current/installation-guide/wazuh-installation-assistant/index.html)
+
+---
+
+### Option 2: Manual Installation (Advanced)
+
+1. Add Wazuh repository and install packages:
+```bash
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo gpg --dearmor -o /usr/share/keyrings/wazuh-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/wazuh-archive-keyring.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
+
+sudo apt update
+sudo apt install wazuh-manager wazuh-indexer wazuh-dashboard
+```
+
+2. Enable and start services:
+```bash
+sudo systemctl enable wazuh-manager
+sudo systemctl start wazuh-manager
+
+sudo systemctl enable wazuh-indexer
+sudo systemctl start wazuh-indexer
+
+sudo systemctl enable wazuh-dashboard
+sudo systemctl start wazuh-dashboard
+```
+
+3. Access the Wazuh Dashboard:
+```
+https://<your_server_ip>:5601
+```
+
+Default credentials: (you'll be prompted to create during setup)
+
+---
+
+## Server Configuration
+
+- Server config file: `/var/ossec/etc/ossec.conf`
+- Add rules, decoders, and active responses as needed.
+- Configure SSL/TLS encryption for secure agent communications.
+- Configure integrations (Slack, Email, PagerDuty) for alert notifications.
+
+---
+
+## Agent Deployment
+
+### Linux Agent
+```bash
+curl -s https://packages.wazuh.com/4.x/apt/install.sh | sudo bash
+sudo apt install wazuh-agent
+```
+
+Configure agent:
+```bash
+sudo nano /var/ossec/etc/ossec.conf
+```
+Set the `<server>` tag to point to your Wazuh Manager IP.
+
+Start the agent:
+```bash
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent
+```
+
+### Windows Agent
+1. Download the installer from [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.x.msi)
+2. During installation, specify the Wazuh Manager IP.
+3. Start the Wazuh Agent service from Services Manager.
+
+---
+
+## Common Commands
+
+| Command | Description |
+|:--------|:------------|
+| `sudo systemctl status wazuh-manager` | Check manager status |
+| `sudo systemctl restart wazuh-agent` | Restart the agent |
+| `sudo tail -f /var/ossec/logs/ossec.log` | View real-time Wazuh logs |
+| `sudo wazuh-control restart` | Restart all Wazuh services |
+
+---
+
+## Troubleshooting
+
+- **Dashboard unreachable:** Check firewall rules (allow TCP 5601).
+- **Agent not connecting:** Confirm server IP and SSL keys match.
+- **No logs appearing:** Verify agent is running and properly configured.
+- **High memory usage:** Consider tuning Indexer heap settings.
+
+> **Tip:** Always validate logs in `/var/ossec/logs/` for errors!
+
+---
+
+## License
+
+This repository is licensed under the [MIT License](LICENSE).
+
+---
+
+# Quick Start
+```bash
+git clone https://github.com/yourusername/wazuh-siem-configurations.git
+cd wazuh-siem-configurations
+```
+
+Secure your network with Wazuh! :shield:
