@@ -97,18 +97,6 @@ sudo bash wazuh-install.sh -a
 
 ---
 
-## 📁 File Structure
-
-```
-wazuh-deploy/
-├── manager/              # Wazuh manager configurations
-├── agent/                # Wazuh agent configurations
-├── dashboard/            # Optional dashboard templates
-└── README.md             # This guide
-```
-
----
-
 ## 📚 References
 
 - [Wazuh Official Docs](https://documentation.wazuh.com/)
@@ -125,7 +113,7 @@ Contributions and improvements are welcome! Fork the repo, create a branch, and 
 
 ## 📄 License
 
-This guide is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
+This guide is licensed under the MIT License. See [LICENSE] for more information.
 
 ---
 
