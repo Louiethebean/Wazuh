@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5b6b7c"/>
+    </marker>
+  </defs>
+  <rect width="800" height="280" fill="#0f1620"/>
+  <text x="400" y="32" text-anchor="middle" fill="#e8edf2" font-size="18" font-weight="600">Wazuh SIEM — Agent to Dashboard Pipeline</text>
+
+  <g font-size="13" fill="#0f1620">
+    <rect x="20" y="100" width="150" height="70" rx="10" fill="#ffb703"/>
+    <text x="95" y="125" text-anchor="middle" font-weight="600">Endpoints</text>
+    <text x="95" y="143" text-anchor="middle">Wazuh Agents</text>
+
+    <rect x="220" y="100" width="170" height="70" rx="10" fill="#fb8500"/>
+    <text x="305" y="125" text-anchor="middle" font-weight="600" fill="#fff">Wazuh Manager</text>
+    <text x="305" y="143" text-anchor="middle" fill="#fff">Rules · Decoders</text>
+
+    <rect x="440" y="100" width="170" height="70" rx="10" fill="#d62828"/>
+    <text x="525" y="125" text-anchor="middle" font-weight="600" fill="#fff">Indexer</text>
+    <text x="525" y="143" text-anchor="middle" fill="#fff">Storage &amp; Search</text>
+
+    <rect x="650" y="100" width="130" height="70" rx="10" fill="#9d0208"/>
+    <text x="715" y="125" text-anchor="middle" font-weight="600" fill="#fff">Dashboard</text>
+    <text x="715" y="143" text-anchor="middle" fill="#fff">Alerts · SOC</text>
+  </g>
+
+  <line x1="170" y1="135" x2="218" y2="135" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="390" y1="135" x2="438" y2="135" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="610" y1="135" x2="648" y2="135" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="400" y="230" text-anchor="middle" fill="#8a99a8" font-size="12">Agents forward logs → Manager analyzes &amp; flags threats → Indexer stores → Dashboard visualizes alerts</text>
+</svg>
