@@ -101,6 +101,17 @@ sudo bash wazuh-install.sh -a
 
 ---
 
+## 🎯 What I Learned / Skills Demonstrated
+
+- **SIEM architecture** — how the manager, indexer, and dashboard divide labor (rule evaluation vs. storage/search vs. visualization), instead of treating "SIEM" as one black-box product.
+- **Agent-based log collection at scale** — registering and managing agents across endpoints, and what breaks (network, certs, registration) when an agent goes silent.
+- **Detection engineering basics** — how rules and decoders turn raw log noise into actionable alerts, and why tuning rules matters as much as deploying the platform.
+- **Operational visibility** — the gap between "logs exist somewhere" and "a SOC analyst can actually see and act on a threat in real time."
+
+**Problem solved:** documented a full agent-to-dashboard SIEM deployment so a small team or homelab can get real intrusion/file-integrity visibility without an enterprise budget.
+
+---
+
 ## 📚 References
 
 - [Wazuh Official Docs](https://documentation.wazuh.com/)
