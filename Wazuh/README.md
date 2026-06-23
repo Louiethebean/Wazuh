@@ -113,7 +113,7 @@ Contributions and improvements are welcome! Fork the repo, create a branch, and 
 
 ## 📄 License
 
-This guide is licensed under the MIT License. See [LICENSE] for more information.
+This guide is licensed under the MIT License. See [LICENSE](./MIT%20License.txt) for more information.
 
 ---
 
