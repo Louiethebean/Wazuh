@@ -1,6 +1,10 @@
 # 🛡️ Wazuh SIEM Installation & Configuration Guide
 
+![License](https://img.shields.io/badge/license-MIT-blue) ![Platform](https://img.shields.io/badge/platform-Linux-orange) ![Tool](https://img.shields.io/badge/tool-Wazuh%20SIEM-d62828)
+
 This repository provides a complete guide to installing and configuring **Wazuh**, an open-source Security Information and Event Management (SIEM) platform. Wazuh provides intrusion detection, vulnerability detection, log analysis, file integrity monitoring, and more.
+
+![Architecture](./architecture.svg)
 
 ---
 
