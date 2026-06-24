@@ -1,4 +1,4 @@
-# 🛡️ Wazuh SIEM Installation & Configuration Guide
+# Wazuh SIEM Installation & Configuration Guide
 
 ![License](https://img.shields.io/badge/license-MIT-blue) ![Platform](https://img.shields.io/badge/platform-Linux-orange) ![Tool](https://img.shields.io/badge/tool-Wazuh%20SIEM-d62828)
 
@@ -8,13 +8,13 @@ This repository provides a complete guide to installing and configuring **Wazuh*
 
 ---
 
-## 📘 What Is Wazuh?
+## What Is Wazuh?
 
 [Wazuh](https://wazuh.com/) is an open-source platform that offers unified XDR and SIEM capabilities. It provides real-time security visibility and threat detection across endpoints, cloud environments, and containers.
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 - OS: Ubuntu 20.04+ or CentOS 7+/RHEL 8+
 - At least 4 GB RAM and 2 CPU cores (recommended)
@@ -23,7 +23,7 @@ This repository provides a complete guide to installing and configuring **Wazuh*
 
 ---
 
-## ⚙️ Components
+## Components
 
 Wazuh has three main components:
 
@@ -33,7 +33,7 @@ Wazuh has three main components:
 
 ---
 
-## 🚀 Installation Steps
+## Installation Steps
 
 ### 1. Add Wazuh Repository
 
@@ -85,7 +85,7 @@ sudo bash wazuh-install.sh -a
 
 ---
 
-## 🔍 Basic Usage
+## Basic Usage
 
 - Log into the Dashboard:  
   `https://<your-server-ip>`  
@@ -101,7 +101,7 @@ sudo bash wazuh-install.sh -a
 
 ---
 
-## 🎯 What I Learned / Skills Demonstrated
+## What I Learned / Skills Demonstrated
 
 - **SIEM architecture** — how the manager, indexer, and dashboard divide labor (rule evaluation vs. storage/search vs. visualization), instead of treating "SIEM" as one black-box product.
 - **Agent-based log collection at scale** — registering and managing agents across endpoints, and what breaks (network, certs, registration) when an agent goes silent.
@@ -112,7 +112,7 @@ sudo bash wazuh-install.sh -a
 
 ---
 
-## 📚 References
+## References
 
 - [Wazuh Official Docs](https://documentation.wazuh.com/)
 - [Wazuh GitHub](https://github.com/wazuh/wazuh)
@@ -120,16 +120,16 @@ sudo bash wazuh-install.sh -a
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions and improvements are welcome! Fork the repo, create a branch, and submit a pull request.
 
 ---
 
-## 📄 License
+## License
 
 This guide is licensed under the MIT License. See [LICENSE](./MIT%20License.txt) for more information.
 
 ---
 
-🛡️ Gain full visibility and protect your infrastructure with Wazuh SIEM.
+Gain full visibility and protect your infrastructure with Wazuh SIEM.
