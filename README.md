@@ -101,6 +101,30 @@ sudo bash wazuh-install.sh -a
 
 ---
 
+## Tooling: Daily Alert Triage Report
+
+"View alerts and rules in real time" is fine until the dashboard has a thousand alerts and the analyst needs to know which 5 matter right now. `scripts/wazuh_alert_triage.py` turns a raw `alerts.json` export into a prioritized daily triage report.
+
+```bash
+python scripts/wazuh_alert_triage.py /var/ossec/logs/alerts/alerts.json --min-level 7 --format md
+```
+
+What it does:
+- Parses Wazuh's native JSONL alert format (one JSON object per line) — no Elasticsearch query required
+- Filters out noise below a configurable rule level
+- Groups alerts by rule (so 50 identical brute-force alerts show as one row with a count, not 50 rows)
+- Groups alerts by agent, ranked by volume, so you can see which host needs attention first
+- Tallies MITRE ATT&CK technique IDs across the alert set to spot a pattern across what would otherwise be isolated alerts
+
+Run the test suite (uses a bundled sample alert set, no live Wazuh instance required):
+
+```bash
+pip install pytest
+pytest tests/
+```
+
+---
+
 ## What I Learned / Skills Demonstrated
 
 - **SIEM architecture** — how the manager, indexer, and dashboard divide labor (rule evaluation vs. storage/search vs. visualization), instead of treating "SIEM" as one black-box product.
